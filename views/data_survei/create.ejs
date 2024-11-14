@@ -1,0 +1,214 @@
+<button type="button" class="btn btn-primary btn-custom" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">Create</button>    
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">New Report</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/data_survei/store" method="POST" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="tanggal_pemeriksaan" class="col-form-label">TANGGAL PEMERIKSAAN</label>
+                                <input type="datetime-local" class="form-control" name="tanggal_pemeriksaan" id="tanggal_pemeriksaan" required>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="pelanggan" class="form-label">ID PEL</label>
+                                <select class="form-select" aria-label="Pilih ID PEL" name="id_pel" required>
+                                    <option selected>Pilih ID PEL</option>
+                                    <% for(var i=0; i < dataPelanggan.length; i++){ %>
+                                        <option value="<%= dataPelanggan[i].id_pel %>"><%= dataPelanggan[i].id_pel %></option>
+                                    <% } %>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="lwbp" class="col-form-label">LWBP</label>
+                                <input type="text" class="form-control" name="lwbp" id="lwbp" required></input>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="wbp" class="col-form-label">WBP</label>
+                                <input type="text" class="form-control" name="wbp" id="wbp" required></input>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="bp" class="col-form-label">BP</label>
+                                <input type="text" class="form-control" name="bp" id="bp" required></input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="total" class="col-form-label">TOTAL</label>
+                                <input type="text" class="form-control" name="total" id="total" required></input>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="kvarh" class="col-form-label">KVARH</label>
+                                <input type="text" class="form-control" name="kvarh" id="kvarh" required></input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="merk_cb_mccb" class="col-form-label">MERK CB/MCCB</label>
+                                <input type="text" class="form-control" name="merk_cb_mccb" id="merk_cb_mccb" required></input>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="tipe_cb_mccb" class="col-form-label">TIPE CB/MCCB</label>
+                                <input type="text" class="form-control" name="tipe_cb_mccb" id="tipe_cb_mccb" required></input>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="merk_ct" class="col-form-label">MERK CT</label>
+                                <input type="text" class="form-control" name="merk_ct" id="merk_ct" required></input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="" class="col-form-label">MODEM GANTI ?</label>
+                                <select class="form-select" aria-label="Default select example" name="penggantian_modem" id="penggantian_modem" required>
+                                    <option selected>Open this select menu</option>
+                                    <option value="ya">IYA</option>
+                                    <option value="tidak">TIDAK</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="" class="col-form-label">NO. METER UPDATE</label>
+                                <input type="number" class="form-control" name="no_meter_update" id="no_meter_update" required></input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="merk_modem" class="col-form-label">MERK MODEM</label>
+                                <input type="text" class="form-control" name="merk_modem" id="merk_modem" required></input>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="tipe_modem" class="col-form-label">TIPE MODEM</label>
+                                <input type="text" class="form-control" name="tipe_modem" id="tipe_modem" required></input>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="imei_modem" class="col-form-label">IMEI MODEM</label>
+                                <input type="number" class="form-control" name="imei_modem" id="imei_modem" required></input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="simcard" class="col-form-label">SIMCARD</label>
+                                <input type="number" class="form-control" name="simcard" id="simcard" required></input>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="ip_access" class="col-form-label">IP ACCESS</label>
+                                <input type="text" class="form-control" name="ip_access" id="ip_access" required></input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="foto_phasor" class="col-form-label">FOTO PHASOR</label>
+                        <input type="file" class="form-control" name="foto_phasor" id="foto_phasor" required></input>
+                    </div>
+                    <div class="mb-3">
+                        <label for="foto_app" class="col-form-label">FOTO APP</label>
+                        <input type="file" class="form-control" name="foto_app" id="foto_app" required></input>
+                    </div>
+                    <div class="mb-3">
+                        <label for="foto_meter" class="col-form-label">FOTO METER</label>
+                        <input type="file" class="form-control" name="foto_meter" id="foto_meter" required></input>
+                    </div>
+                    <div class="mb-3">
+                        <label for="foto_ct" class="col-form-label">FOTO CT</label>
+                        <input type="file" class="form-control" name="foto_ct" id="foto_ct" required></input>
+                    </div>
+                    <div class="mb-3">
+                        <label for="foto_cb_mccb" class="col-form-label">FOTO CB/MCCB</label>
+                        <input type="file" class="form-control" name="foto_cb_mccb" id="foto_cb_mccb" required></input>
+                    </div>
+                    <div class="mb-3">
+                        <label for="foto_ba" class="col-form-label">FOTO BA</label>
+                        <input type="file" class="form-control" name="foto_ba" id="foto_ba" required></input>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="shuntrip" class="col-form-label">SHUNTRIP</label>
+                            <select class="form-select" aria-label="Default select example" name="shuntrip" id="shuntrip" required>
+                                <option selected>Open this select menu</option>
+                                <option value="ada">ADA</option>
+                                <option value="tidak">TIDAK</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="foto_segel" class="col-form-label">FOTO SEGEL</label>
+                        <input type="file" class="form-control" name="foto_segel" id="foto_segel" required></input>
+                    </div>
+                    <div class="mb-3">
+                        <label for="error_kwh_persen" class="col-form-label">ERROR KWH %</label>
+                        <input type="text" class="form-control" name="error_kwh_persen" id="error_kwh_persen" required></input>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="permasalahan" class="form-label">PERMASALAHAN</label>
+                                <select class="form-select" aria-label="Pilih Permasalahan" name="id_permasalahan" required>
+                                    <option selected>Pilih Permasalahan</option>
+                                    <% for(var i=0; i < dataPermasalahan.length; i++){ %>
+                                        <option value="<%= dataPermasalahan[i].id_permasalahan %>"><%= dataPermasalahan[i].jenis_permasalahan %></option>
+                                    <% } %>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="perbaikan" class="form-label">PERBAIKAN</label>
+                                <select class="form-select" aria-label="Pilih Perbaikan" name="id_perbaikan" required>
+                                    <option selected>Pilih Perbaikan</option>
+                                    <% for(var i=0; i < dataPerbaikan.length; i++){ %>
+                                        <option value="<%= dataPerbaikan[i].id_perbaikan %>"><%= dataPerbaikan[i].jenis_perbaikan %></option>
+                                    <% } %>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="petugas" class="col-form-label">PETUGAS</label>
+                        <input type="text" class="form-control" name="petugas" id="petugas" required></input>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Save Report</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Activity - PLN UP3 Gresik</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Custom Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="stylesheets/style.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .table-custom {
+            border-collapse: separate;
+            border-spacing: 0;
+            width: 100%;
+        }
+        .table-custom th, .table-custom td {
+            padding: 12px;
+            text-align: left;
+        }
+        .table-custom thead th {
+            background-color: #0056a1;
+            color: #fff;
+        }
+        .table-custom tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .table-custom tbody tr:nth-child(odd) {
+            background-color: #fff;
+        }
+        .table-custom tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+        .table-custom th, .table-custom td {
+            border: 1px solid #ddd;
+        }
+        .table-custom td:first-child, .table-custom th:first-child {
+            border-left: none;
+        }
+        .table-custom td:last-child, .table-custom th:last-child {
+            border-right: none;
+        }
+        .table-custom thead th:first-child, .table-custom thead th:last-child {
+            border-top: none;
+        }
+    </style>
+</head>
+<body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0">
+        <!-- Navigation-->
+        <%- include('partials/index/_navigation') %>
+        <!-- Header-->
+        <header id="home" class="py-3">
+            <div class="container px-5 pb-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-xxl-5 col-md-6">
+                        <!-- Header text home content-->
+                        <%- include('partials/index/_textHome') %>
+                    </div>
+                    <div class="col-xxl-7 col-md-6">
+                        <!-- Header profile home picture-->
+                        <%- include('partials/index/_profileHome') %>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section id="about" class="py-5">
+            <div class="container px-5">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-xxl-8">
+                        <div class="text-center mt-5">
+                            <h1 class="display-3 fw-bolder mb-3"><span class="text-gradient d-inline">E-MONITORING HAR AMR</span></h1>
+                        </div>
+                        <!-- Penjelasan Umum -->
+                        <div class="mb-5">
+                            <p class="lead text-center">
+                                Website <strong>E-MONITORING HAR AMR</strong> adalah platform digital yang dirancang untuk mempermudah pengelolaan dan penyimpanan data survei HAR AMR. 
+                                Dengan adanya website ini, semua data yang sebelumnya disimpan terbatas kini dapat diakses secara terstruktur dan efisien. 
+                                Hal ini membantu meningkatkan akurasi, mempercepat proses pelaporan, dan memudahkan koordinasi antara admin dan petugas di lapangan.
+                            </p>
+                        </div>
+                        <!-- Penjelasan Admin dan Petugas -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4 class="fw-bold text-primary">Apa yang bisa dilakukan oleh Admin?</h4>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Mengelola data survei HAR AMR</li>
+                                    <li class="list-group-item">Melihat laporan harian dan bulanan</li>
+                                    <li class="list-group-item">Menambahkan atau memperbarui informasi survei</li>
+                                    <li class="list-group-item">Mengontrol akses pengguna sistem</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h4 class="fw-bold text-primary">Apa yang bisa diakses oleh Petugas?</h4>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Melihat jadwal survei HAR AMR</li>
+                                    <li class="list-group-item">Mengunggah hasil survei langsung ke sistem</li>
+                                    <li class="list-group-item">Memantau status survei yang telah dilakukan</li>
+                                    <li class="list-group-item">Mengakses data survei yang relevan</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>               
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#FFFFFF" fill-opacity="1" d="M0,320L34.3,298.7C68.6,277,137,235,206,229.3C274.3,224,343,256,411,245.3C480,235,549,181,617,176C685.7,171,754,213,823,245.3C891.4,277,960,299,1029,282.7C1097.1,267,1166,213,1234,197.3C1302.9,181,1371,203,1406,213.3L1440,224L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"></path>
+        </svg>
+        <!-- Contact Section-->
+        <%- include('partials/index/_contact') %>
+    </main>
+    <!-- Footer-->
+    <%- include('partials/index/_footer') %>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="javascripts/scripts.js"></script>
+    <!-- Bootstrap Toast JS -->
+    <script>
+        document.getElementById('activityForm').addEventListener('submit', function(event) {
+            var confirmation = confirm("Apakah data yang diinputkan sudah benar?");
+            if (!confirmation) {
+                event.preventDefault();
+            } else {
+                event.preventDefault(); // Prevent form submission to show the toast
+                var toastEl = new bootstrap.Toast(document.getElementById('liveToast'));
+                toastEl.show();
+                // Simulate form submission (e.g., by using AJAX or similar here if needed)
+            }
+        });
+    </script>
+
+    <!-- Bootstrap Toast HTML -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast align-items-center text-bg-info border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    Data sudah diinputkan
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

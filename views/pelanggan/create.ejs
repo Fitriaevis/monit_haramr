@@ -1,0 +1,83 @@
+<button type="button" class="btn btn-primary btn-custom" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">Create</button>    
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">New Pelanggan</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/pelanggan/store" method="POST">
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="id_pel" class="col-form-label">ID Pelanggan :</label>
+                                <input type="text" class="form-control" name="id_pel" id="id_pel" required>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="nama" class="col-form-label">Nama Pelanggan :</label>
+                                <input type="text" class="form-control" name="nama" id="nama" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="alamat" class="col-form-label">Alamat Pelanggan :</label>
+                        <input type="text" class="form-control" name="alamat" id="alamat" required>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="no_kunci" class="col-form-label">No. Kunci :</label>
+                                <input type="text" class="form-control" name="no_kunci" id="no_kunci" required>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="tarif" class="col-form-label">Tarif :</label>
+                                <input type="text" class="form-control" name="tarif" id="tarif" required>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="daya" class="col-form-label">Daya :</label>
+                                <input type="text" class="form-control" name="daya" id="daya" required>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="fakm" class="col-form-label">FAKM :</label>
+                                <input type="text" class="form-control" name="fakm" id="fakm" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="merk_meter" class="col-form-label">Merk Meter :</label>
+                                <input type="text" class="form-control" name="merk_meter" id="merk_meter" required>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="tipe_meter" class="col-form-label">Tipe Meter :</label>
+                                <input type="text" class="form-control" name="tipe_meter" id="tipe_meter" required>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="no_meter" class="col-form-label">No Meter :</label>
+                                <input type="text" class="form-control" name="no_meter" id="no_meter" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
