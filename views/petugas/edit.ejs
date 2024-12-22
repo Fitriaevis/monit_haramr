@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Head Partial -->
+    <%- include('../partials/head') %>
+</head>
+<body class="sb-nav-fixed">
+    <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <h1 class="mt-4">Edit Data HAR AMR</h1>
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item"><a href="/HAR AMR">Data HAR AMR</a></li>
+                        <li class="breadcrumb-item active">Edit</li>
+                    </ol>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-edit me-1"></i>
+                            Edit Data HAR AMR
+                        </div>
+                        <div class="card-body">
+                            <form action="/petugas/update/<%= id %>" method="POST" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="pelanggan" class="form-label">ID PEL</label>
+                                            <select class="form-select" aria-label="Pilih ID PEL" name="id_pel" required>
+                                                <option selected>Pilih ID PEL</option>
+                                                <% for(var i=0; i < dataPelanggan.length; i++){ %>
+                                                    <option value="<%= dataPelanggan[i].id_pel %>" <%= dataPelanggan[i].id_pel === id_pel ? 'selected' : '' %>><%= dataPelanggan[i].id_pel %></option>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="tanggal_pemeriksaan" class="col-form-label">TANGGAL PEMERIKSAAN</label>
+                                            <!-- Menggunakan input type datetime-local -->
+                                            <input type="datetime-local" class="form-control" name="tanggal_pemeriksaan" id="tanggal_pemeriksaan" value="<%= new Date(tanggal_pemeriksaan).toISOString().slice(0, 16) %>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="petugas" class="col-form-label">PETUGAS</label>
+                                            <input type="text" class="form-control" name="petugas" id="petugas" value="<%= petugas %>" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" hidden>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="nama" class="col-form-label">Nama Pelanggan :</label>
+                                            <input type="text" class="form-control" name="nama" id="nama" value="<%= nama %>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="alamat" class="col-form-label">Alamat Pelanggan :</label>
+                                            <input type="text" class="form-control" name="alamat" id="alamat" value="<%= alamat %>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="no_kunci" class="col-form-label">No. Kunci :</label>
+                                            <input type="text" class="form-control" name="no_kunci" id="no_kunci" value="<%= no_kunci %>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="tarif" class="col-form-label">Tarif :</label>
+                                            <input type="text" class="form-control" name="tarif" id="tarif" value="<%= tarif %>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="daya" class="col-form-label">Daya :</label>
+                                            <input type="text" class="form-control" name="daya" id="daya" value="<%= daya %>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="fakm" class="col-form-label">FAKM :</label>
+                                            <input type="text" class="form-control" name="fakm" id="fakm" value="<%= fakm %>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="merk_meter" class="col-form-label">Merk Meter :</label>
+                                            <input type="text" class="form-control" name="merk_meter" id="merk_meter" value="<%= merk_meter %>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="tipe_meter" class="col-form-label">Tipe Meter :</label>
+                                            <input type="text" class="form-control" name="tipe_meter" id="tipe_meter" value="<%= tipe_meter %>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="no_meter" class="col-form-label">No Meter :</label>
+                                            <input type="text" class="form-control" name="no_meter" id="no_meter" value="<%= no_meter %>" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="lwbp" class="col-form-label">LWBP</label>
+                                            <input type="text" class="form-control" name="lwbp" id="lwbp" value="<%= lwbp %>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="wbp" class="col-form-label">WBP</label>
+                                            <input type="text" class="form-control" name="wbp" id="wbp" value="<%= wbp %>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="bp" class="col-form-label">BP</label>
+                                            <input type="text" class="form-control" name="bp" id="bp" value="<%= bp %>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="total" class="col-form-label">TOTAL</label>
+                                            <input type="text" class="form-control" name="total" id="total" value="<%= total %>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="kvarh" class="col-form-label">KVARH</label>
+                                            <input type="text" class="form-control" name="kvarh" id="kvarh" value="<%= kvarh %>" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="merk_cb_mccb" class="col-form-label">MERK CB/MCCB</label>
+                                            <input type="text" class="form-control" name="merk_cb_mccb" id="merk_cb_mccb" value="<%= merk_cb_mccb %>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="tipe_cb_mccb" class="col-form-label">TIPE CB/MCCB</label>
+                                            <input type="text" class="form-control" name="tipe_cb_mccb" id="tipe_cb_mccb" value="<%= tipe_cb_mccb %>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="merk_ct" class="col-form-label">MERK CT</label>
+                                            <input type="text" class="form-control" name="merk_ct" id="merk_ct" value="<%= merk_ct %>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="penggantian_modem" class="col-form-label">MODEM GANTI ?</label>
+                                            <select class="form-select" aria-label="Default select example" name="penggantian_modem" id="penggantian_modem" required>
+                                                <option value="ya" <%= penggantian_modem === 'ya' ? 'selected' : '' %>>IYA</option>
+                                                <option value="tidak" <%= penggantian_modem === 'tidak' ? 'selected' : '' %>>TIDAK</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="no_meter_update" class="col-form-label">NO. METER UPDATE</label>
+                                            <input type="number" class="form-control" name="no_meter_update" id="no_meter_update" value="<%= no_meter_update %>" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="merk_modem" class="col-form-label">MERK MODEM</label>
+                                            <input type="text" class="form-control" name="merk_modem" id="merk_modem" value="<%= merk_modem %>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="tipe_modem" class="col-form-label">TIPE MODEM</label>
+                                            <input type="text" class="form-control" name="tipe_modem" id="tipe_modem" value="<%= tipe_modem %>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="imei_modem" class="col-form-label">IMEI MODEM</label>
+                                            <input type="number" class="form-control" name="imei_modem" id="imei_modem" value="<%= imei_modem %>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="simcard" class="col-form-label">SIMCARD</label>
+                                            <input type="number" class="form-control" name="simcard" id="simcard" value="<%= simcard %>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="ip_access" class="col-form-label">IP ACCESS</label>
+                                            <input type="text" class="form-control" name="ip_access" id="ip_access" value="<%= ip_access %>" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="foto_phasor" class="col-form-label">FOTO PHASOR</label>
+                                    <input type="file" class="form-control" name="foto_phasor" id="foto_phasor">
+                                    <% if (foto_phasor) { %>
+                                        <small>Current: <%= foto_phasor %></small>
+                                    <% } %>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="foto_app" class="col-form-label">FOTO APP</label>
+                                    <input type="file" class="form-control" name="foto_app" id="foto_app">
+                                    <% if (foto_app) { %>
+                                        <small>Current: <%= foto_app %></small>
+                                    <% } %>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="foto_meter" class="col-form-label">FOTO METER</label>
+                                    <input type="file" class="form-control" name="foto_meter" id="foto_meter">
+                                    <% if (foto_meter) { %>
+                                        <small>Current: <%= foto_meter %></small>
+                                    <% } %>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="foto_ct" class="col-form-label">FOTO CT</label>
+                                    <input type="file" class="form-control" name="foto_ct" id="foto_ct">
+                                    <% if (foto_ct) { %>
+                                        <small>Current: <%= foto_ct %></small>
+                                    <% } %>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="foto_cb_mccb" class="col-form-label">FOTO CB/MCCB</label>
+                                    <input type="file" class="form-control" name="foto_cb_mccb" id="foto_cb_mccb">
+                                    <% if (foto_cb_mccb) { %>
+                                        <small>Current: <%= foto_cb_mccb %></small>
+                                    <% } %>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="foto_ba" class="col-form-label">FOTO BA</label>
+                                    <input type="file" class="form-control" name="foto_ba" id="foto_ba">
+                                    <% if (foto_ba) { %>
+                                        <small>Current: <%= foto_ba %></small>
+                                    <% } %>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="foto_segel" class="col-form-label">FOTO SEGEL</label>
+                                    <input type="file" class="form-control" name="foto_segel" id="foto_segel">
+                                    <% if (foto_segel) { %>
+                                        <small>Current: <%= foto_segel %></small>
+                                    <% } %>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="error_kwh_persen" class="col-form-label">ERROR KWH %</label>
+                                            <input type="text" class="form-control" name="error_kwh_persen" id="error_kwh_persen" value="<%= error_kwh_persen %>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="shuntrip" class="col-form-label">SHUNTRIP</label>
+                                            <select class="form-select" aria-label="Default select example" name="shuntrip" id="shuntrip" required>
+                                                <option value="ada" <%= shuntrip === 'ada' ? 'selected' : '' %>>ADA</option>
+                                                <option value="tidak" <%= shuntrip === 'tidak' ? 'selected' : '' %>>TIDAK</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="permasalahan" class="form-label">PERMASALAHAN</label>
+                                            <select class="form-select" aria-label="Pilih Permasalahan" name="id_permasalahan" required>
+                                                <option selected>Pilih Permasalahan</option>
+                                                <% for(var i=0; i < dataPermasalahan.length; i++){ %>
+                                                    <option value="<%= dataPermasalahan[i].id_permasalahan %>" <%= dataPermasalahan[i].id_permasalahan === id_permasalahan ? 'selected' : '' %>><%= dataPermasalahan[i].jenis_permasalahan %></option>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="perbaikan" class="form-label">PERBAIKAN</label>
+                                            <select class="form-select" aria-label="Pilih Perbaikan" name="id_perbaikan" required>
+                                                <option selected>Pilih Perbaikan</option>
+                                                <% for(var i=0; i < dataPerbaikan.length; i++){ %>
+                                                    <option value="<%= dataPerbaikan[i].id_perbaikan %>" <%= dataPerbaikan[i].id_perbaikan === id_perbaikan ? 'selected' : '' %>><%= dataPerbaikan[i].jenis_perbaikan %></option>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-center mt-4">
+                                    <button type="submit" class="btn btn-primary mx-2">Save Changes</button>
+                                    <a href="/petugas" class="btn btn-secondary mx-2">Cancel</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <!-- Footer Partial -->
+            <footer class="py-4 bg-light mt-auto">
+                <%- include('../partials/footer') %>
+            </footer>
+        </div>
+    </div>
+    <!-- Script Partial -->
+    <%- include('../partials/script') %>

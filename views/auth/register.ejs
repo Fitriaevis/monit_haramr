@@ -24,10 +24,30 @@
                                     <div class="card-body">
                                         <form action="/saveusers" method="POST">
                                             <div class="row mb-3">
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <div class="form-floating mb-3">
                                                         <input class="form-control" name= "nama_user" id="inputLastName" type="text" placeholder="Enter long name" required />
                                                         <label for="inputLastName">Nama Lengkap</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-floating mb-3">
+                                                        <input class="form-control" name="no_telepon" id="inputNoTelp" type="number" placeholder="Enter No Telepon" required />
+                                                        <label for="inputNoTelp">No. Telepon</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-floating mb-3">
+                                                        <input class="form-control" name= "jabatan" id="inputJabatan" type="text" placeholder="name@example.com" required />
+                                                        <label for="inputJabatan">Jabatan</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <div class="form-floating mb-3">
+                                                        <input class="form-control" name= "alamat_user" id="inputLastName" type="text" placeholder="Enter long name" required />
+                                                        <label for="inputLastName">Alamat Lengkap</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -37,27 +57,24 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row mb-3">
-                                                <div class="col-md-4">
-                                                    <div class="form-floating mb-3">
-                                                        <input class="form-control" name= "username" id="inputFirstName" type="text" placeholder="Enter username" required />
-                                                        <label for="inputFirstName">Username</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
+                                            <div class="row mb-2">
+                                                <div class="col-md-6">
                                                     <div class="form-floating mb-3">
                                                         <select class="form-select" name= "role" id="floatingSelect" aria-label="Floating label select example" required />
                                                             <option selected>select menu</option>
+                                                            <option value="admin">ADMIN</option>
                                                             <option value="petugas">PETUGAS</option>
-                                                            <option value="admin">ADMIN UP3</option>
                                                         </select>
                                                         <label for="floatingSelect">Role</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-6">
                                                     <div class="form-floating mb-3">
                                                         <input class="form-control" name= "password" id="inputPassword" type="password" placeholder="Create a password" required />
                                                         <label for="inputPassword">Password</label>
+                                                        <button type="button" class="btn btn-outline-black btn-sm position-absolute top-50 end-0 translate-middle-y me-3" id="togglePassword" tabindex="-1">
+                                                            <i class="fa fa-eye" id="toggleIcon"></i>
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -65,9 +82,6 @@
                                         </form>
                                     </div>
                                 </div>
-                                    <!-- <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="login.html">Have an account? Go to login</a></div>
-                                    </div> -->
                             </div>
                         </div>
                     </div>

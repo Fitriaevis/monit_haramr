@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Head Partial -->
+        <%- include('../partials/head') %>
+    </head>
+    <body class="sb-nav-fixed">
+        <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4 mx-auto text-center">Detail Data Survei</h1>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-edit me-1"></i>
+                                Detail Data Survei
+                            </div>
+                            <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="tanggal_pemeriksaan" class="col-form-label">Tanggal Pemeriksaan :</label>
+                                                <input type="text" class="form-control" name="tanggal_pemeriksaan" id="tanggal_pemeriksaan" value="<%= new Date(tanggal_pemeriksaan).toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' }) %>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="id_pel" class="col-form-label">ID Pelanggan :</label>
+                                                <input type="text" class="form-control" name="id_pel" id="id_pel" value="<%= id_pel %>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="nama" class="col-form-label">Nama Pelanggan :</label>
+                                                <input type="text" class="form-control" name="nama" id="nama" value="<%= nama %>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="alamat" class="col-form-label">Alamat Pelanggan :</label>
+                                                <input type="text" class="form-control" name="alamat" id="alamat" value="<%= alamat %>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="no_kunci" class="col-form-label">No. Kunci :</label>
+                                                <input type="text" class="form-control" name="no_kunci" id="no_kunci" value="<%= no_kunci %>" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="tarif" class="col-form-label">Tarif :</label>
+                                                <input type="text" class="form-control" name="tarif" id="tarif" value="<%= tarif %>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="daya" class="col-form-label">Daya :</label>
+                                                <input type="text" class="form-control" name="daya" id="daya" value="<%= daya %>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="fakm" class="col-form-label">FAKM :</label>
+                                                <input type="text" class="form-control" name="fakm" id="fakm" value="<%= fakm %>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="merk_meter" class="col-form-label">Merk Meter :</label>
+                                                <input type="text" class="form-control" name="merk_meter" id="merk_meter" value="<%= merk_meter %>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="tipe_meter" class="col-form-label">Tipe Meter :</label>
+                                                <input type="text" class="form-control" name="tipe_meter" id="tipe_meter" value="<%= tipe_meter %>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="no_meter" class="col-form-label">No Meter :</label>
+                                                <input type="text" class="form-control" name="no_meter" id="no_meter" value="<%= no_meter %>" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="lwbp" class="col-form-label">LWBP</label>
+                                                <input type="text" class="form-control" name="lwbp" id="lwbp" value="<%= lwbp %>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="wbp" class="col-form-label">WBP</label>
+                                                <input type="text" class="form-control" name="wbp" id="wbp" value="<%= wbp %>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="bp" class="col-form-label">BP</label>
+                                                <input type="text" class="form-control" name="bp" id="bp" value="<%= bp %>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="total" class="col-form-label">TOTAL</label>
+                                                <input type="text" class="form-control" name="total" id="total" value="<%= total %>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="kvarh" class="col-form-label">KVARH</label>
+                                                <input type="text" class="form-control" name="kvarh" id="kvarh" value="<%= kvarh %>" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="merk_cb_mccb" class="col-form-label">MERK CB/MCCB</label>
+                                                <input type="text" class="form-control" name="merk_cb_mccb" id="merk_cb_mccb" value="<%= merk_cb_mccb %>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="tipe_cb_mccb" class="col-form-label">TIPE CB/MCCB</label>
+                                                <input type="text" class="form-control" name="tipe_cb_mccb" id="tipe_cb_mccb" value="<%= tipe_cb_mccb %>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="merk_ct" class="col-form-label">MERK CT</label>
+                                                <input type="text" class="form-control" name="merk_ct" id="merk_ct" value="<%= merk_ct %>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="penggantian_modem" class="col-form-label">MODEM GANTI ?</label>
+                                                <input type="text" class="form-control" name="penggantian_modem" id="penggantian_modem" value="<%= penggantian_modem %>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="" class="col-form-label">NO. METER UPDATE</label>
+                                                <input type="number" class="form-control" name="no_meter_update" id="no_meter_update" value="<%= no_meter_update %>" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="merk_modem" class="col-form-label">MERK MODEM</label>
+                                                <input type="text" class="form-control" name="merk_modem" id="merk_modem" value="<%= merk_modem %>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="tipe_modem" class="col-form-label">TIPE MODEM</label>
+                                                <input type="text" class="form-control" name="tipe_modem" id="tipe_modem" value="<%= tipe_modem %>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="imei_modem" class="col-form-label">IMEI MODEM</label>
+                                                <input type="number" class="form-control" name="imei_modem" id="imei_modem" value="<%= imei_modem %>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="simcard" class="col-form-label">SIMCARD</label>
+                                                <input type="number" class="form-control" name="simcard" id="simcard" value="<%= simcard %>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="ip_access" class="col-form-label">IP ACCESS</label>
+                                                <input type="text" class="form-control" name="ip_access" id="ip_access" value="<%= ip_access %>" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="foto_phasor" class="col-form-label">FOTO PHASOR</label>
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <% if(foto_phasor) { %>
+                                                            <a href="/images/upload/<%= foto_phasor %>" target="_blank">View File</a>
+                                                        <% } else { %>
+                                                            Tidak ada file
+                                                        <% } %>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="foto_app" class="col-form-label">FOTO APP</label>
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <% if(foto_app) { %>
+                                                            <a href="/images/upload/<%= foto_app %>" target="_blank">View File</a>
+                                                        <% } else { %>
+                                                            Tidak ada file
+                                                        <% } %>
+                                                    </div>
+                                                </div>
+                                            </div>                                           
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="foto_meter" class="col-form-label">FOTO METER</label>
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <% if(foto_meter) { %>
+                                                            <a href="/images/upload/<%= foto_meter %>" target="_blank">View File</a>
+                                                        <% } else { %>
+                                                            Tidak ada file
+                                                        <% } %>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                
+                                                <label for="foto_ct" class="col-form-label">FOTO CT</label>
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <% if(foto_ct) { %>
+                                                            <a href="/images/upload/<%= foto_ct %>" target="_blank">View File</a>
+                                                        <% } else { %>
+                                                            Tidak ada file
+                                                        <% } %>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="foto_cb_mccb" class="col-form-label">FOTO CB/MCCB</label>
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <% if(foto_cb_mccb) { %>
+                                                            <a href="/images/upload/<%= foto_cb_mccb %>" target="_blank">View File</a>
+                                                        <% } else { %>
+                                                            Tidak ada file
+                                                        <% } %>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="foto_ba" class="col-form-label">FOTO BA</label>
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <% if(foto_ba) { %>
+                                                            <a href="/images/upload/<%= foto_ba %>" target="_blank">View File</a>
+                                                        <% } else { %>
+                                                            Tidak ada file
+                                                        <% } %>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="foto_segel" class="col-form-label">FOTO SEGEL</label>
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <% if(foto_segel) { %>
+                                                            <a href="/images/upload/<%= foto_segel %>" target="_blank">View File</a>
+                                                        <% } else { %>
+                                                            Tidak ada file
+                                                        <% } %>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="shuntrip" class="col-form-label">SHUNTRIP</label>
+                                                <input type="text" class="form-control" name="shuntrip" id="shuntrip" value="<%= shuntrip %>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="error_kwh_persen" class="col-form-label">ERROR KWH %</label>
+                                                <input type="text" class="form-control" name="error_kwh_persen" id="error_kwh_persen" value="<%= error_kwh_persen %>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="jenis_permasalahan" class="col-form-label">Jenis Permasalahan</label>
+                                                <input type="text" class="form-control" name="id_permasalahan" id="jenis_permasalahan" value="<%= jenis_permasalahan %>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="jenis_perbaikan" class="col-form-label">Jenis Perbaikan</label>
+                                                <input type="text" class="form-control" name="id_perbaikan" id="jenis_perbaikan" value="<%= jenis_perbaikan %>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="petugas" class="col-form-label">PETUGAS</label>
+                                                <input type="text" class="form-control" name="petugas" id="petugas" value="<%= petugas %>" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <!-- Footer Partial -->
+                <footer class="py-2 bg-light mt-auto">
+                    <%- include('../partials/footer') %>
+                </footer>
+            </div>
+        </div>
+        <!-- Script Partial -->
+        <%- include('../partials/script') %>
+    </body>
+</html>

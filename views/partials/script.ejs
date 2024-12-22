@@ -5,6 +5,7 @@
 <script src="demo/chart-bar-demo.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
 <script src="javascripts/datatables-simple-demo.js"></script>
+
 <script>
     function showSection(sectionId) {
         // Hide all content sections
@@ -15,4 +16,139 @@
         // Show the selected section
         document.getElementById(sectionId).style.display = 'block';
     }
+</script>
+
+<script>
+    document.getElementById('togglePassword').addEventListener('click', function () {
+        const passwordField = document.getElementById('inputPassword');
+        const toggleIcon = document.getElementById('toggleIcon');
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            toggleIcon.classList.remove('fa-eye');
+            toggleIcon.classList.add('fa-eye-slash');
+        } else {
+            passwordField.type = 'password';
+            toggleIcon.classList.remove('fa-eye-slash');
+            toggleIcon.classList.add('fa-eye');
+        }
+    });
+</script>
+
+<script>
+    document.getElementById('id_pel').addEventListener('change', function() {
+        const id_pel = this.value;
+        // Pastikan ID PEL terpilih
+        if (id_pel !== "Pilih ID PEL") {
+            // Lakukan permintaan Ajax untuk mendapatkan data pelanggan
+            fetch(`/data_pelanggan/${id_pel}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Isi kolom dengan data yang diterima
+                    document.getElementById('nama').value = data.nama;
+                    document.getElementById('alamat').value = data.alamat;
+                    document.getElementById('tarif').value = data.tarif;
+                    document.getElementById('daya').value = data.daya;
+                    document.getElementById('fakm').value = data.fakm;
+                    document.getElementById('merk_meter').value = data.merk_meter;
+                    document.getElementById('tipe_meter').value = data.tipe_meter;
+                    document.getElementById('no_meter').value = data.no_meter;
+                })
+                .catch(error => console.log('Error fetching data:', error));
+        }
+    });
+</script>
+
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANMas7Lyrx6xcbO7fN4tENQScTVwaG794"></script>
+<script type="text/javascript">
+    var marker;
+
+    function placeMarker(map, position) {
+        if (marker) {
+            marker.setPosition(position);
+        } else {
+            marker = new google.maps.Marker({
+                position: position,
+                map: map,
+            });
+        }
+
+        // Kirim nilai koordinat ke input
+        document.querySelector("input[name=longitude]").value = position.lng();
+        document.querySelector("input[name=latitude]").value = position.lat();
+    }
+
+    function initialize() {
+        var mapOptions = {
+            center: new google.maps.LatLng(-7.1652, 112.6520),
+            zoom: 15,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        var map = new google.maps.Map(document.getElementById("google-maps-create"), mapOptions);
+
+        // Event listener ketika peta diklik
+        google.maps.event.addListener(map, 'click', function(event) {
+            placeMarker(map, event.latLng);
+        });
+    }
+
+    // Event jendela di-load
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+<script type="text/javascript">
+    function initialize() {
+        var latitude = parseFloat(document.getElementById('latitude').value);
+        var longitude = parseFloat(document.getElementById('longitude').value);
+
+        var mapOptions = {
+            center: new google.maps.LatLng(latitude, longitude),
+            zoom: 15,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        var map = new google.maps.Map(document.getElementById("google-maps-detail"), mapOptions);
+
+        var marker = new google.maps.Marker({
+            position: { lat: latitude, lng: longitude },
+            map: map,
+        });
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+<script type="text/javascript">
+    const latitudes = document.getElementById('latitudes').value.split(',').map(Number);
+    const longitudes = document.getElementById('longitudes').value.split(',').map(Number);
+    const customerNames = document.getElementById('customerNames').value.split(',');
+
+    // Contoh: Menampilkan semua titik di peta
+    function initMap() {
+        const map = new google.maps.Map(document.getElementById('googleMapAll'), {
+            zoom: 14,
+            center: { lat: latitudes[0], lng: longitudes[0] } // Pusat peta di titik pertama
+        });
+
+        // Menambahkan marker untuk setiap titik
+        for (let i = 0; i < latitudes.length; i++) {
+            const marker = new google.maps.Marker({
+                position: { lat: latitudes[i], lng: longitudes[i] },
+                map: map,
+                title: customerNames[i] // Menambahkan nama pelanggan sebagai title
+            });
+
+            // Menambahkan info window untuk menampilkan nama pelanggan
+            const infoWindow = new google.maps.InfoWindow({
+                content: customerNames[i] // Konten info window adalah nama pelanggan
+            });
+
+            // Menampilkan info window saat marker diklik
+            marker.addListener('click', function() {
+                infoWindow.open(map, marker);
+            });
+        }
+    }
+
+    google.maps.event.addDomListener(window, 'load', initMap);
 </script>

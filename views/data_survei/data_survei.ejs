@@ -15,10 +15,22 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Dashboard</li>
-                        </ol>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h1 class="mt-4">Data Survei</h1>
+                                <ol class="breadcrumb mb-4">
+                                    <li class="breadcrumb-item active">Data Survei</li>
+                                </ol>
+                            </div>
+                            <div class="col-md-4 mt-5">
+                                <% if (messages.success) { %>
+                                    <div class="alert alert-info" role="alert">
+                                        <i class="bi bi-check2-circle"></i>
+                                        <%= messages.success %>
+                                    </div>
+                                <% } %>
+                            </div>
+                        </div>
                         <!-- <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
@@ -30,10 +42,8 @@
                                 </div>
                             </div>
                         </div> -->
-                        <!-- views/report/create.ejs -->
-                            <div class="row">
-                                <%- include('create') %>
-                            </div>
+                        <!-- views/pelanggan/create.ejs -->
+                            <%- include('create') %>
                         <!-- view table -->
                         <div class="card mb-4 mt-3">
                             <div class="card-header">
@@ -47,39 +57,9 @@
                                             <th>No.</th>
                                             <th>Foto Phasor</th>
                                             <th>ID PEL</th>
-                                            <th>Created_at</th>
+                                            <th>Tanggal Pemeriksaan</th>
                                             <th>Nama</th>
-                                            <!-- <th>Alamat</th> -->
-                                            <!-- <th>Tarif</th> -->
-                                            <!-- <th>Daya</th> -->
-                                            <!-- <th>FAKM</th> -->
-                                            <!-- <th>No Meter</th> -->
-                                            <!-- <th>Maps</th> -->
-                                            <!-- <th>LWBP</th> -->
-                                            <!-- <th>WBP</th> -->
-                                            <!-- <th>BP</th> -->
-                                            <!-- <th>Total</th> -->
-                                            <!-- <th>KVARH</th> -->
-                                            <!-- <th>Merk CB/MCCB</th> -->
-                                            <!-- <th>Type CB/MCCB</th> -->
-                                            <!-- <th>Merk CT</th> -->
-                                            <!-- <th>Ganti Modem</th> -->
-                                            <!-- <th>No Meter Update</th> -->
-                                            <!-- <th>Merk Modem</th> -->
-                                            <!-- <th>Type Modem</th> -->
-                                            <!-- <th>Simcard</th> -->
-                                            <!-- <th>IP Access</th> -->
-                                            <!-- <th>Foto APP</th> -->
-                                            <!-- <th>Foto Meter</th> -->
-                                            <!-- <th>Foto CT</th> -->
-                                            <!-- <th>Foto CB/MCCB</th> -->
-                                            <!-- <th>Foto BA</th> -->
-                                            <!-- <th>Shuntrip</th> -->
-                                            <!-- <th>Foto Segel</th> -->
-                                            <!-- <th>Error KWN %</th> -->
                                             <th>Permasalahan</th>
-                                            <th>Perbaikan</th>
-                                            <th>Petugas</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -89,26 +69,26 @@
                                             <th scope="row"><%= (i+1) %></th>
                                             <td>
                                                 <% if(data[i].foto_phasor) { %>
-                                                    <a href="/images/upload/<%= data[i].file_report %>" target="_blank">Lihat</a>
+                                                    <a href="/images/upload/<%= data[i].foto_phasor %>" target="_blank">Lihat</a>
                                                 <% } else { %>
                                                     Tidak ada file
                                                 <% } %>
                                             </td>
                                             <td><%= data[i].id_pel %></td>
-                                            <td><%= new Date(data[i].created).toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' }) %></td>
-                                            <td><%= data[i].nama %></td>
-                                            <td><%= data[i].alamat %></td>
-                                            <td><%= data[i].permasalahan %></td>
-                                            <td><%= data[i].perbaikan %></td>
-                                            <td><%= data[i].petugas %></td>
                                             <td>
-                                                <a href="/report/edit/<%= data[i].id_data_survei %>" class="btn btn-warning btn-action"><i class="bi bi-pencil-square"></i></a>
-                                                <a href="/report/delete/<%= data[i].id_data_survei %>" class="btn btn-danger btn-action" 
-                                                    onclick="return confirm('Apakah yakin laporan ini ingin dihapus?');">
-                                                    <i class="bi bi-trash"></i>
+                                                <%= new Date(data[i].tanggal_pemeriksaan).toLocaleString('en-US', { timeZone: 'Asia/Jakarta' }).replace(',', '') %>
+                                            </td>
+                                            <td><%= data[i].nama %></td>
+                                            <td><%= data[i].jenis_permasalahan %></td>
+                                            <td>
+                                                <a href="/data_survei/detail/<%= data[i].id_data_survei %>" class="btn btn-info btn-action">
+                                                    <i class="bi bi-view-list icon-small"></i>
                                                 </a>
-                                                <a href="/pelanggan/view/<%= data[i].kode_pelanggan %>" class="btn btn-info btn-action">
-                                                    <i class="bi bi-view-list"></i>
+                                                <a href="/data_survei/edit/<%= data[i].id_data_survei %>" class="btn btn-warning btn-action">
+                                                    <i class="bi bi-pencil-square icon-small"></i>
+                                                </a>
+                                                <a href="/data_survei/delete/<%= data[i].id_data_survei %>" class="btn btn-danger btn-action" onclick="return confirm('Apakah yakin laporan ini ingin dihapus?');">
+                                                    <i class="bi bi-trash icon-small"></i>
                                                 </a>
                                             </td>
                                         </tr>
@@ -119,7 +99,7 @@
                         </div>
                     </div>
                 </main>
-                <footer class="py-4 bg-light mt-auto">
+                <footer class="py-2 bg-light mt-auto">
                     <%- include('../partials/footer') %>
                 </footer>
             </div>

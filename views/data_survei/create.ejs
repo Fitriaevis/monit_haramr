@@ -4,11 +4,15 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">New Report</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">New Data Survei</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form action="/data_survei/store" method="POST" enctype="multipart/form-data">
+                    <div id="google-maps-create" style="height: 400px; width:100%"></div>
+                    <!-- input untuk menampung koordinat -->
+                    <input type="text" name="longitude" hidden required/>
+                    <input type="text" name="latitude" hidden required/>
                     <div class="row">
                         <div class="col">
                             <div class="mb-3">
@@ -26,6 +30,54 @@
                                     <% } %>
                                 </select>
                             </div>
+                        </div>
+                    </div>
+                    <div class="row" hidden>
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="no_kunci" class="col-form-label">No. Kunci</label>
+                                <input type="text" class="form-control" name="no_kunci" id="no_kunci" readonly>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="nama" class="col-form-label">NAMA</label>
+                                <input type="text" class="form-control" name="nama" id="nama" readonly>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="alamat" class="col-form-label">ALAMAT</label>
+                                <input type="text" class="form-control" name="alamat" id="alamat" readonly>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="tarif" class="col-form-label">TARIF</label>
+                                <input type="text" class="form-control" name="tarif" id="tarif" readonly>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="daya" class="col-form-label">DAYA</label>
+                                <input type="text" class="form-control" name="daya" id="daya" readonly>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="fakm" class="col-form-label">FAKM</label>
+                            <input type="text" class="form-control" name="fakm" id="fakm" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="merk_meter" class="col-form-label">Merk Meter</label>
+                            <input type="text" class="form-control" name="merk_meter" id="merk_meter" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="tipe_meter" class="col-form-label">Tipe Meter</label>
+                            <input type="text" class="form-control" name="tipe_meter" id="tipe_meter" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="no_meter" class="col-form-label">No Meter</label>
+                            <input type="text" class="form-control" name="no_meter" id="no_meter" readonly>
                         </div>
                     </div>
                     <div class="row">

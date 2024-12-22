@@ -3,18 +3,17 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
 var flash = require("express-flash");
 var session = require("express-session");
-const Memorystore = require('session-memory-store')(session);
+const MemoryStore = require('session-memory-store')(session);
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var petugasRouter = require('./routes/petugas');
+var adminRouter = require('./routes/admin');
 var dataSurveiRouter = require('./routes/data_survei');
 var permasalahanRouter = require('./routes/permasalahan');
 var perbaikanRouter = require('./routes/perbaikan');
 var pelangganRouter = require('./routes/pelanggan');
-var profileRouter = require('./routes/profile');
 var petugasRouter = require('./routes/petugas');
 
 var app = express();
@@ -29,29 +28,30 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(session({
-  cookie: {
-    maxAge: 60000,
-    secure: false,
-    httpOnly: true,
-    sameSite: 'strict',
-    //domain: 'domainkitananti.com'
-  },
-  store: new session.MemoryStore(),
-  saveUninitialized: true,
-  resave: true,
-  secret: 'secret'
-}))
+app.use( session({
+    cookie: {
+      maxAge: 60000,
+      secure: false,
+      httpOnly: true,
+      sameSite: 'strict',
+      // domain: 'domainkitananti.com',
+    },
+    store: new session.MemoryStore(),
+    saveUninitialized: true,
+    resave: true,
+    secret: "secret",
+  })
+);
 
-app.use(flash())
+app.use(flash());
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/petugas', petugasRouter);
+app.use('/admin', adminRouter);
 app.use('/data_survei', dataSurveiRouter);
 app.use('/permasalahan', permasalahanRouter);
 app.use('/perbaikan', perbaikanRouter);
 app.use('/pelanggan', pelangganRouter);
-app.use('/profile', profileRouter);
 app.use('/petugas', petugasRouter);
 
 // catch 404 and forward to error handler
@@ -69,5 +69,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 module.exports = app;
